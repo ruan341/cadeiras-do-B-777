@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Boeing 777 - Reservas Automáticas</title>
+    <title>Sistema Boeing 777 - Tudo em Um</title>
     <style>
-        /* ESTILOS OTIMIZADOS PARA BOEING 777 */
         * {
             margin: 0;
             padding: 0;
@@ -17,8 +16,7 @@
             background: linear-gradient(135deg, #0c0c2e 0%, #1a1a3e 100%);
             color: #f0f0f0;
             min-height: 100vh;
-            padding: 15px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%2300a8ff" opacity="0.2"/></svg>');
+            padding: 20px;
         }
         
         .container {
@@ -26,7 +24,7 @@
             margin: 0 auto;
         }
         
-        /* HEADER COM NOVO DESIGN */
+        /* HEADER */
         .header {
             text-align: center;
             padding: 25px;
@@ -35,24 +33,6 @@
             border-radius: 15px;
             border: 2px solid rgba(0, 168, 255, 0.3);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 168, 255, 0.1), transparent);
-            animation: headerGlow 3s infinite;
-        }
-        
-        @keyframes headerGlow {
-            0% { left: -100%; }
-            100% { left: 100%; }
         }
         
         h1 {
@@ -60,7 +40,6 @@
             margin-bottom: 10px;
             font-size: 2.5rem;
             text-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
-            position: relative;
         }
         
         .subtitle {
@@ -75,7 +54,6 @@
             padding: 10px 25px;
             border-radius: 25px;
             display: inline-block;
-            font-size: 15px;
             font-weight: bold;
             box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
         }
@@ -96,7 +74,6 @@
             border-radius: 15px;
             border: 1px solid rgba(0, 168, 255, 0.2);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(5px);
         }
         
         .section-title {
@@ -105,45 +82,23 @@
             padding-bottom: 10px;
             border-bottom: 2px solid rgba(0, 168, 255, 0.3);
             font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         
-        .section-title::before {
-            content: '✈️';
-            font-size: 1.5rem;
-        }
-        
-        /* MAPA DE POLTRONAS BOEING 777 */
+        /* MAPA DE POLTRONAS */
         .seat-map-container {
             background: rgba(0, 10, 25, 0.5);
             padding: 20px;
             border-radius: 10px;
             margin: 15px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
             overflow-x: auto;
-        }
-        
-        .airplane-layout {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .airplane-body {
-            background: rgba(100, 100, 120, 0.3);
-            height: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .seat-map {
             display: flex;
             flex-direction: column;
             gap: 8px;
+            margin: 0 auto;
+            max-width: 800px;
         }
         
         .seat-row {
@@ -162,16 +117,7 @@
             font-size: 15px;
         }
         
-        /* POLTRONAS ESTILO BOEING 777 */
-        .seat-group {
-            display: flex;
-            gap: 5px;
-        }
-        
-        .seat-group.middle {
-            margin: 0 20px;
-        }
-        
+        /* POLTRONAS */
         .seat {
             width: 40px;
             height: 40px;
@@ -184,7 +130,6 @@
             transition: all 0.3s;
             border: 2px solid transparent;
             font-size: 14px;
-            position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
@@ -233,7 +178,7 @@
             opacity: 0.7;
         }
         
-        /* PAINEL DE RESERVA MELHORADO */
+        /* PAINEL DE RESERVA */
         .reservation-card {
             background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(0, 168, 255, 0.1));
             padding: 25px;
@@ -241,18 +186,6 @@
             margin-bottom: 25px;
             border: 2px solid rgba(33, 150, 243, 0.4);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .reservation-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, #00a8ff, #9C27B0);
         }
         
         .reservation-item {
@@ -261,21 +194,11 @@
             margin-bottom: 15px;
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            align-items: center;
-        }
-        
-        .reservation-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
         }
         
         .item-label {
             color: #aaddff;
             font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         
         .item-value {
@@ -285,7 +208,6 @@
         
         .item-value.seat {
             color: #2196F3;
-            text-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
         }
         
         .item-value.email {
@@ -294,61 +216,46 @@
         
         .item-value.code {
             color: #FF9800;
-            letter-spacing: 2px;
             font-family: monospace;
             font-size: 20px;
         }
         
-        .item-value.empty {
-            color: #888;
-            font-style: italic;
-        }
-        
-        /* FORMULÁRIO */
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 10px;
-            color: #aaddff;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 15px;
+        /* FORMULÁRIO EMBUTIDO */
+        .embedded-form-container {
+            background: rgba(0, 20, 40, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
             border: 2px solid rgba(0, 168, 255, 0.3);
+            display: none; /* Inicialmente escondido */
+        }
+        
+        .form-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
             border-radius: 10px;
-            background: rgba(0, 20, 40, 0.7);
+            background: white;
+        }
+        
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .close-form {
+            background: #f44336;
             color: white;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: #00a8ff;
-            box-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
-            background: rgba(0, 30, 60, 0.8);
-        }
-        
-        .form-input::placeholder {
-            color: #8899aa;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
         
         /* BOTÕES */
-        .action-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
         .btn {
             padding: 18px;
             border: none;
@@ -361,43 +268,24 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .btn:hover::after {
-            left: 100%;
+            margin-bottom: 15px;
         }
         
         .btn-primary {
             background: linear-gradient(90deg, #4CAF50, #2E7D32);
             color: white;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
         }
         
         .btn-primary:hover:not(:disabled) {
             background: linear-gradient(90deg, #45a049, #1B5E20);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
         }
         
         .btn-primary:disabled {
             background: #666;
             cursor: not-allowed;
             opacity: 0.6;
-            transform: none;
-            box-shadow: none;
         }
         
         .btn-secondary {
@@ -408,43 +296,6 @@
         .btn-secondary:hover {
             background: linear-gradient(90deg, #616161, #303030);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn-test {
-            background: linear-gradient(90deg, #9C27B0, #6A1B9A);
-            color: white;
-        }
-        
-        .btn-test:hover {
-            background: linear-gradient(90deg, #8E24AA, #4A148C);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
-        }
-        
-        /* LEGENDAS */
-        .legends {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 15px;
-            border-radius: 20px;
-        }
-        
-        .legend-color {
-            width: 18px;
-            height: 18px;
-            border-radius: 4px;
         }
         
         /* MENSAGENS */
@@ -462,23 +313,22 @@
             min-width: 300px;
             max-width: 400px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 5px solid;
         }
         
         .message.success {
-            background: linear-gradient(90deg, rgba(76, 175, 80, 0.9), rgba(46, 125, 50, 0.9));
-            border-left: 5px solid #2E7D32;
+            background: rgba(76, 175, 80, 0.9);
+            border-left-color: #2E7D32;
         }
         
         .message.error {
-            background: linear-gradient(90deg, rgba(244, 67, 54, 0.9), rgba(183, 28, 28, 0.9));
-            border-left: 5px solid #C62828;
+            background: rgba(244, 67, 54, 0.9);
+            border-left-color: #C62828;
         }
         
         .message.info {
-            background: linear-gradient(90deg, rgba(33, 150, 243, 0.9), rgba(13, 71, 161, 0.9));
-            border-left: 5px solid #1565C0;
+            background: rgba(33, 150, 243, 0.9);
+            border-left-color: #1565C0;
         }
         
         @keyframes slideIn {
@@ -486,85 +336,10 @@
             to { transform: translateX(0); opacity: 1; }
         }
         
-        /* INSTRUÇÕES */
-        .instructions {
-            margin-top: 25px;
-            padding: 20px;
-            background: rgba(0, 20, 40, 0.5);
-            border-radius: 10px;
-            font-size: 15px;
-            color: #aaddff;
-            border: 1px solid rgba(0, 168, 255, 0.2);
-        }
-        
-        .instructions-title {
-            color: #00a8ff;
-            margin-bottom: 15px;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .instructions ol {
-            padding-left: 25px;
-            margin-top: 10px;
-        }
-        
-        .instructions li {
-            margin-bottom: 10px;
-            padding-left: 5px;
-        }
-        
-        .instructions strong {
-            color: #FF9800;
-        }
-        
-        /* FOOTER */
-        .footer {
-            text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #8899aa;
-            font-size: 14px;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-link {
-            color: #00a8ff;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            background: rgba(0, 168, 255, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .footer-link:hover {
-            background: rgba(0, 168, 255, 0.3);
-            transform: translateY(-3px);
-        }
-        
         /* RESPONSIVO */
-        @media (max-width: 1200px) {
-            .airplane-section, .reservation-section {
-                min-width: 100%;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .header {
-                padding: 20px 15px;
-            }
-            
-            h1 {
-                font-size: 2rem;
+            .dashboard {
+                flex-direction: column;
             }
             
             .seat {
@@ -573,86 +348,9 @@
                 font-size: 13px;
             }
             
-            .btn {
-                padding: 15px;
-                font-size: 16px;
+            .form-frame {
+                height: 400px;
             }
-            
-            .message {
-                min-width: 250px;
-                left: 15px;
-                right: 15px;
-                margin: 0 auto;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .seat {
-                width: 30px;
-                height: 30px;
-                font-size: 12px;
-            }
-            
-            .seat-group.middle {
-                margin: 0 10px;
-            }
-            
-            .row-label {
-                width: 25px;
-                font-size: 13px;
-            }
-        }
-        
-        /* ESTATÍSTICAS */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .stat-item {
-            text-align: center;
-            background: rgba(0, 20, 40, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 120px;
-            border: 1px solid rgba(0, 168, 255, 0.2);
-        }
-        
-        .stat-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #00a8ff;
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            color: #aaddff;
-            font-size: 14px;
-        }
-        
-        /* LOADER */
-        .loader {
-            display: none;
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .loader-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(0, 168, 255, 0.3);
-            border-top: 4px solid #00a8ff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -660,100 +358,41 @@
     <div class="container">
         <!-- HEADER -->
         <header class="header">
-            <h1>🛩️ Sistema de Reservas Boeing 777</h1>
-            <p class="subtitle">Reserva automática com envio de código por email - Layout Otimizado</p>
-            <div class="status">✅ Sistema Integrado com Google Apps Script</div>
-            
-            <!-- ESTATÍSTICAS -->
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-value" id="total-seats">396</div>
-                    <div class="stat-label">Total de Poltronas</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="available-seats">350</div>
-                    <div class="stat-label">Disponíveis</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="occupied-seats">46</div>
-                    <div class="stat-label">Ocupadas</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="reservations-today">12</div>
-                    <div class="stat-label">Reservas Hoje</div>
-                </div>
-            </div>
+            <h1>🛩️ Sistema de Reservas Boeing 777 - Tudo em Um</h1>
+            <p class="subtitle">Selecione sua poltrona e reserve diretamente nesta página</p>
+            <div class="status">✅ Sistema 100% Integrado - Nenhuma nova aba</div>
         </header>
         
         <!-- DASHBOARD -->
         <div class="dashboard">
-            <!-- MAPA DE POLTRONAS BOEING 777 -->
+            <!-- MAPA DE POLTRONAS -->
             <section class="airplane-section">
                 <h2 class="section-title">Mapa de Poltronas Boeing 777</h2>
-                <p style="color: #aaddff; margin-bottom: 15px;">Clique em uma poltrona disponível para selecionar</p>
+                <p style="color: #aaddff; margin-bottom: 15px;">Clique em uma poltrona disponível</p>
                 
-                <!-- LOADER -->
-                <div class="loader" id="seat-loader">
-                    <div class="loader-spinner"></div>
-                    <p style="margin-top: 10px; color: #aaddff;">Carregando mapa de poltronas...</p>
-                </div>
-                
-                <!-- MAPA -->
                 <div class="seat-map-container">
-                    <div class="airplane-layout">
-                        <!-- CABINE DE PRIMEIRA CLASSE -->
-                        <div style="text-align: center; color: #9C27B0; font-weight: bold; margin-bottom: 15px;">
-                            ⭐ PRIMEIRA CLASSE (Fileiras 1-4)
-                        </div>
-                        
-                        <div class="seat-map" id="first-class-map">
-                            <!-- Primeira Classe será gerada aqui -->
-                        </div>
-                        
-                        <!-- BUSINESS CLASS -->
-                        <div style="text-align: center; color: #FF9800; font-weight: bold; margin: 20px 0 15px 0;">
-                            ✨ BUSINESS CLASS (Fileiras 5-12)
-                        </div>
-                        
-                        <div class="seat-map" id="business-class-map">
-                            <!-- Business Class será gerada aqui -->
-                        </div>
-                        
-                        <!-- CORREDOR VISUAL -->
-                        <div class="airplane-body"></div>
-                        
-                        <!-- ECONOMY CLASS -->
-                        <div style="text-align: center; color: #4CAF50; font-weight: bold; margin: 20px 0 15px 0;">
-                            💺 ECONOMY CLASS (Fileiras 13-40)
-                        </div>
-                        
-                        <div class="seat-map" id="economy-class-map">
-                            <!-- Economy Class será gerada aqui -->
-                        </div>
+                    <div class="seat-map" id="seat-map">
+                        <!-- Poltronas serão geradas aqui -->
                     </div>
                 </div>
                 
                 <!-- LEGENDAS -->
-                <div class="legends">
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: linear-gradient(135deg, #9C27B0, #7b1fa2);"></div>
-                        <span>Primeira Classe</span>
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="width: 15px; height: 15px; background: #4CAF50; border-radius: 3px;"></div>
+                        <span style="font-size: 14px;">Disponível</span>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: linear-gradient(135deg, #FF9800, #e68900);"></div>
-                        <span>Business</span>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="width: 15px; height: 15px; background: #FF9800; border-radius: 3px;"></div>
+                        <span style="font-size: 14px;">Business</span>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: linear-gradient(135deg, #4CAF50, #45a049);"></div>
-                        <span>Disponível</span>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="width: 15px; height: 15px; background: #9C27B0; border-radius: 3px;"></div>
+                        <span style="font-size: 14px;">Primeira</span>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: linear-gradient(135deg, #2196F3, #0d8aee);"></div>
-                        <span>Premium Economy</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: linear-gradient(135deg, #757575, #616161);"></div>
-                        <span>Ocupada</span>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="width: 15px; height: 15px; background: #757575; border-radius: 3px;"></div>
+                        <span style="font-size: 14px;">Ocupada</span>
                     </div>
                 </div>
             </section>
@@ -765,258 +404,195 @@
                 <!-- CARD DE RESUMO -->
                 <div class="reservation-card">
                     <div class="reservation-item">
-                        <span class="item-label">📍 Poltrona:</span>
+                        <span class="item-label">Poltrona:</span>
                         <span class="item-value seat" id="display-seat">
-                            <span class="empty">Não selecionada</span>
+                            <span style="color: #aaa;">Não selecionada</span>
                         </span>
                     </div>
                     
                     <div class="reservation-item">
-                        <span class="item-label">📧 Email:</span>
-                        <span class="item-value email" id="display-email">
-                            <span class="empty">Não informado</span>
-                        </span>
-                    </div>
-                    
-                    <div class="reservation-item">
-                        <span class="item-label">📊 Status:</span>
+                        <span class="item-label">Status:</span>
                         <span class="item-value" id="display-status">
-                            <span style="color: #aaa;">Aguardando dados</span>
+                            <span style="color: #aaa;">Aguardando seleção</span>
                         </span>
                     </div>
                     
                     <div class="reservation-item">
-                        <span class="item-label">🔐 Código de Check-in:</span>
+                        <span class="item-label">Código:</span>
                         <span class="item-value" id="display-code">
                             <span style="color: #aaa;">---</span>
                         </span>
                     </div>
-                    
-                    <div class="reservation-item">
-                        <span class="item-label">🕐 Horário:</span>
-                        <span class="item-value" id="display-time">
-                            <span style="color: #aaa;">--:--</span>
-                        </span>
+                </div>
+                
+                <!-- BOTÕES DE AÇÃO -->
+                <button class="btn btn-primary" id="reserve-btn" disabled>
+                    📋 Reservar Esta Poltrona
+                </button>
+                
+                <button class="btn btn-secondary" id="clear-btn">
+                    🔄 Selecionar Outra
+                </button>
+                
+                <!-- FORMULÁRIO GOOGLE FORMS EMBUTIDO -->
+                <div class="embedded-form-container" id="form-container">
+                    <div class="form-header">
+                        <h3 style="color: #00a8ff;">📝 Formulário de Reserva</h3>
+                        <button class="close-form" id="close-form">✖ Fechar</button>
                     </div>
-                </div>
-                
-                <!-- FORMULÁRIO -->
-                <div class="form-group">
-                    <label for="email-input" class="form-label">
-                        <span>📧</span> Seu Email *
-                    </label>
-                    <input type="email" id="email-input" class="form-input" 
-                           placeholder="exemplo@gmail.com" required>
-                    <small style="color: #8899aa; display: block; margin-top: 8px;">
-                        Você receberá o código de check-in neste email
-                    </small>
-                </div>
-                
-                <div class="form-group">
-                    <label for="name-input" class="form-label">
-                        <span>👤</span> Seu Nome (Opcional)
-                    </label>
-                    <input type="text" id="name-input" class="form-input" 
-                           placeholder="Seu nome completo">
-                </div>
-                
-                <!-- BOTÕES -->
-                <div class="action-buttons">
-                    <button class="btn btn-primary" id="reserve-btn" disabled>
-                        <span>📋</span> Gerar Reserva Automática
-                    </button>
-                    <button class="btn btn-secondary" id="clear-btn">
-                        <span>🔄</span> Limpar Seleção
-                    </button>
-                    <button class="btn btn-test" id="test-btn">
-                        <span>🧪</span> Testar Sistema
-                    </button>
+                    
+                    <!-- O Forms será carregado aqui -->
+                    <div id="forms-iframe-container">
+                        <p style="color: #aaddff; text-align: center; padding: 50px;">
+                            Carregando formulário...
+                        </p>
+                    </div>
                 </div>
                 
                 <!-- INSTRUÇÕES -->
-                <div class="instructions">
-                    <div class="instructions-title">
-                        <span>📝</span> Como funciona o sistema
-                    </div>
-                    <ol>
-                        <li><strong>Digite seu email</strong> acima</li>
-                        <li><strong>Selecione uma poltrona</strong> no mapa do Boeing 777</li>
-                        <li><strong>Clique em "Gerar Reserva Automática"</strong></li>
-                        <li>O Google Forms abrirá com sua poltrona pré-preenchida</li>
-                        <li><strong>Confirme seu email</strong> no Forms e clique em ENVIAR</li>
-                        <li><strong>Receba o código de check-in</strong> por email automaticamente</li>
-                        <li><strong>Apresente o código no aeroporto</strong> para fazer o check-in</li>
+                <div style="margin-top: 25px; padding: 20px; background: rgba(0, 20, 40, 0.5); border-radius: 10px; color: #aaddff;">
+                    <h4>📝 Como funciona:</h4>
+                    <ol style="padding-left: 20px; margin-top: 10px;">
+                        <li>Selecione uma poltrona no mapa</li>
+                        <li>Clique em "Reservar Esta Poltrona"</li>
+                        <li>O formulário aparecerá nesta mesma página</li>
+                        <li>Sua poltrona já estará preenchida</li>
+                        <li>Complete com seu email e envie</li>
+                        <li>Receba o código de check-in automaticamente</li>
                     </ol>
                 </div>
             </section>
         </div>
-        
-        <!-- FOOTER -->
-        <footer class="footer">
-            <p>Sistema Integrado com Google Apps Script | API Funcional: ✅ | Boeing 777 Layout: ✅</p>
-            <div class="footer-links">
-                <a href="#" class="footer-link" id="refresh-link">🔄 Atualizar Poltronas</a>
-                <a href="#" class="footer-link" id="docs-link">📚 Documentação</a>
-                <a href="#" class="footer-link" id="support-link">🆘 Suporte</a>
-            </div>
-            <p style="margin-top: 15px; font-size: 12px;">
-                Atualização automática de poltronas a cada 30 segundos | Última atualização: <span id="last-update">--:--:--</span>
-            </p>
-        </footer>
     </div>
     
-    <!-- MENSAGENS FLUTUANTES -->
+    <!-- MENSAGENS -->
     <div class="message" id="message"></div>
 
     <script>
         // ============================================
-        // CONFIGURAÇÃO DO SISTEMA BOEING 777
+        // CONFIGURAÇÃO DO SISTEMA
         // ============================================
         
-        // URLs DO SEU SISTEMA - ALTERE CONFORME SEU GOOGLE APPS SCRIPT
-        const API_URL = "https://script.google.com/macros/s/AKfycbwXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/exec";
-        const FORM_URL = "https://docs.google.com/forms/d/e/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/viewform";
-        const SPREADSHEET_ID = "1XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        // SUA URL DO GOOGLE APPS SCRIPT
+        const API_URL = "https://script.google.com/macros/s/AKfycbzTADq5yYnxF-y4UCOooftylc3cZo9wDJr5u-mTOeSS22Z7wqAdN_83AuRzpqqD98Jt/exec";
+        
+        // SEU GOOGLE FORMS (COM SEAT_AQUI)
+        const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe0tGjNhXh_9vjk_EAdhyZWx870rG8lVIr141OkfzCSgRMBXw/viewform?usp=pp_url&entry.1796450485=SEAT_AQUI";
+        
+        // ID do campo da poltrona (do seu Forms)
+        const SEAT_FIELD_ID = "entry.1796450485";
         
         // ============================================
         // VARIÁVEIS DO SISTEMA
         // ============================================
         let selectedSeat = null;
-        let userEmail = "";
-        let userName = "";
         let occupiedSeats = [];
-        let lastUpdateTime = null;
+        let checkinCode = null;
         
         // ============================================
         // INICIALIZAÇÃO
         // ============================================
         document.addEventListener('DOMContentLoaded', function() {
-            showLoader(true);
             createSeatMap();
             loadOccupiedSeats();
             setupEventListeners();
             updateDisplay();
-            updateLastUpdateTime();
-            
-            // Atualizar hora atual
-            setInterval(updateCurrentTime, 1000);
-            
-            // Atualizar estatísticas
-            updateStats();
         });
         
         // ============================================
         // CRIA MAPA DE POLTRONAS BOEING 777
         // ============================================
         function createSeatMap() {
-            createFirstClass();
-            createBusinessClass();
-            createEconomyClass();
+            const seatMap = document.getElementById('seat-map');
+            seatMap.innerHTML = '';
+            
+            // Primeira Classe (Fileiras 1-4)
+            createSection(seatMap, "⭐ PRIMEIRA CLASSE", 1, 4, [['A'], ['D', 'G'], ['J']], 'first-class');
+            
+            // Business Class (Fileiras 5-12)
+            createSection(seatMap, "✨ BUSINESS CLASS", 5, 12, [['A', 'B'], ['D', 'E', 'F'], ['H', 'J']], 'business');
+            
+            // Premium Economy (Fileiras 13-20)
+            createSection(seatMap, "💎 PREMIUM ECONOMY", 13, 20, [['A', 'B', 'C'], ['D', 'E', 'F', 'G'], ['H', 'J', 'K']], 'premium');
+            
+            // Economy Class (Fileiras 21-40)
+            createSection(seatMap, "💺 ECONOMY CLASS", 21, 40, [['A', 'B', 'C'], ['D', 'E', 'F', 'G'], ['H', 'J', 'K']], 'available');
         }
         
-        function createFirstClass() {
-            const container = document.getElementById('first-class-map');
-            container.innerHTML = '';
+        function createSection(container, title, startRow, endRow, seatGroups, seatType) {
+            // Título da seção
+            const titleDiv = document.createElement('div');
+            titleDiv.textContent = title;
+            titleDiv.style.cssText = `
+                color: ${seatType === 'first-class' ? '#9C27B0' : 
+                         seatType === 'business' ? '#FF9800' : 
+                         seatType === 'premium' ? '#2196F3' : '#4CAF50'};
+                font-weight: bold;
+                margin: 20px 0 10px 0;
+                text-align: center;
+                font-size: 14px;
+            `;
+            container.appendChild(titleDiv);
             
-            // Primeira Classe: Fileiras 1-4, configuração 1-2-1
-            const firstClassLetters = [['A'], ['D', 'G'], ['J']];
-            
-            for (let row = 1; row <= 4; row++) {
-                createSeatRow(container, row, firstClassLetters, 'first-class');
-            }
-        }
-        
-        function createBusinessClass() {
-            const container = document.getElementById('business-class-map');
-            container.innerHTML = '';
-            
-            // Business Class: Fileiras 5-12, configuração 2-3-2
-            const businessClassLetters = [['A', 'B'], ['D', 'E', 'F'], ['H', 'J']];
-            
-            for (let row = 5; row <= 12; row++) {
-                createSeatRow(container, row, businessClassLetters, 'business');
-            }
-        }
-        
-        function createEconomyClass() {
-            const container = document.getElementById('economy-class-map');
-            container.innerHTML = '';
-            
-            // Economy Class: Fileiras 13-40, configuração 3-4-3
-            const economyClassLetters = [['A', 'B', 'C'], ['D', 'E', 'F', 'G'], ['H', 'J', 'K']];
-            
-            for (let row = 13; row <= 40; row++) {
-                createSeatRow(container, row, economyClassLetters, row >= 13 && row <= 20 ? 'premium' : 'available');
-            }
-        }
-        
-        function createSeatRow(container, rowNum, seatGroups, seatType) {
-            const rowDiv = document.createElement('div');
-            rowDiv.className = 'seat-row';
-            
-            // Número da fileira
-            const rowLabel = document.createElement('div');
-            rowLabel.className = 'row-label';
-            rowLabel.textContent = rowNum < 10 ? `0${rowNum}` : rowNum;
-            rowDiv.appendChild(rowLabel);
-            
-            // Cria grupos de poltronas
-            seatGroups.forEach((group, groupIndex) => {
-                const groupDiv = document.createElement('div');
-                groupDiv.className = 'seat-group';
-                if (groupIndex === 1) groupDiv.classList.add('middle');
+            // Cria cada fileira
+            for (let row = startRow; row <= endRow; row++) {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'seat-row';
                 
-                group.forEach(letter => {
-                    const seatId = `${rowNum}${letter}`;
-                    const seat = document.createElement('button');
-                    seat.className = `seat ${seatType}`;
-                    seat.textContent = letter;
-                    seat.dataset.seat = seatId;
-                    seat.title = `Poltrona ${seatId}`;
+                // Número da fileira
+                const rowLabel = document.createElement('div');
+                rowLabel.className = 'row-label';
+                rowLabel.textContent = row < 10 ? `0${row}` : row;
+                rowDiv.appendChild(rowLabel);
+                
+                // Cria grupos de poltronas
+                seatGroups.forEach((group, groupIndex) => {
+                    const groupDiv = document.createElement('div');
+                    groupDiv.style.display = 'flex';
+                    groupDiv.style.gap = '5px';
+                    if (groupIndex === 1) groupDiv.style.margin = '0 15px';
                     
-                    // Evento de clique
-                    seat.addEventListener('click', function() {
-                        selectSeat(seatId);
+                    group.forEach(letter => {
+                        const seatId = `${row}${letter}`;
+                        const seat = document.createElement('button');
+                        seat.className = `seat ${seatType}`;
+                        seat.textContent = letter;
+                        seat.dataset.seat = seatId;
+                        seat.title = `Poltrona ${seatId}`;
+                        
+                        seat.addEventListener('click', function() {
+                            selectSeat(seatId);
+                        });
+                        
+                        groupDiv.appendChild(seat);
                     });
                     
-                    groupDiv.appendChild(seat);
+                    rowDiv.appendChild(groupDiv);
                 });
                 
-                rowDiv.appendChild(groupDiv);
-            });
-            
-            container.appendChild(rowDiv);
+                container.appendChild(rowDiv);
+            }
         }
         
         // ============================================
-        // CARREGA POLTRONAS OCUPADAS DA API
+        // CARREGA POLTRONAS OCUPADAS
         // ============================================
         function loadOccupiedSeats() {
             showMessage('🔄 Carregando poltronas ocupadas...', 'info');
             
-            // Simulação de dados - Substitua pelo seu endpoint real
-            setTimeout(() => {
-                // Dados de exemplo para Boeing 777
-                occupiedSeats = [
-                    "1A", "2D", "3G", "4J",           // Primeira Classe
-                    "5A", "5B", "6E", "7F", "8H", "9J", // Business
-                    "12A", "12J",                     // Business
-                    "13B", "13C", "14D", "14G", "15H", "15J", // Premium Economy
-                    "16A", "16K", "17B", "17J", "18C", "18H", // Premium Economy
-                    "20A", "20B", "20C", "20K",       // Premium Economy
-                    "21D", "22E", "23F", "24G",       // Economy
-                    "25H", "26J", "27K", "28A",       // Economy
-                    "29B", "30C", "31D", "32E",       // Economy
-                    "33F", "34G", "35H", "36J",       // Economy
-                    "37K", "38A", "39B", "40C"        // Economy
-                ];
-                
-                updateSeatStatus();
-                updateStats();
-                updateLastUpdateTime();
-                showLoader(false);
-                showMessage(`✅ Sistema carregado: ${occupiedSeats.length} poltronas ocupadas`, 'success');
-            }, 1000);
+            fetch(API_URL + '?t=' + new Date().getTime())
+                .then(response => response.json())
+                .then(data => {
+                    occupiedSeats = data;
+                    updateSeatStatus();
+                    showMessage(`✅ ${data.length} poltronas ocupadas carregadas`, 'success');
+                })
+                .catch(error => {
+                    console.log('Modo offline:', error);
+                    occupiedSeats = ["1A", "5D", "12C", "15F", "22G"];
+                    updateSeatStatus();
+                    showMessage('⚠️ Modo offline ativado', 'info');
+                });
         }
         
         function updateSeatStatus() {
@@ -1026,29 +602,16 @@
                 if (occupiedSeats.includes(seatId)) {
                     seat.classList.remove('available', 'business', 'first-class', 'premium', 'selected');
                     seat.classList.add('occupied');
+                    seat.title = `Poltrona ${seatId} - Ocupada`;
                     
                     if (selectedSeat === seatId) {
                         selectedSeat = null;
                         updateDisplay();
                         checkReservationReady();
-                        showMessage('⚠️ Sua poltrona foi ocupada! Escolha outra.', 'error');
+                        showMessage('⚠️ Esta poltrona foi ocupada!', 'error');
                     }
                 }
             });
-        }
-        
-        // ============================================
-        // ATUALIZA ESTATÍSTICAS
-        // ============================================
-        function updateStats() {
-            const totalSeats = 396; // Boeing 777 típico
-            const availableSeats = totalSeats - occupiedSeats.length;
-            const reservationsToday = Math.floor(occupiedSeats.length * 0.3); // Simulação
-            
-            document.getElementById('total-seats').textContent = totalSeats;
-            document.getElementById('available-seats').textContent = availableSeats;
-            document.getElementById('occupied-seats').textContent = occupiedSeats.length;
-            document.getElementById('reservations-today').textContent = reservationsToday;
         }
         
         // ============================================
@@ -1065,16 +628,8 @@
                 const prevSeat = document.querySelector(`[data-seat="${selectedSeat}"]`);
                 if (prevSeat) {
                     prevSeat.classList.remove('selected');
-                    // Restaura classe original
-                    if (prevSeat.classList.contains('business')) {
-                        prevSeat.classList.add('business');
-                    } else if (prevSeat.classList.contains('first-class')) {
-                        prevSeat.classList.add('first-class');
-                    } else if (prevSeat.classList.contains('premium')) {
-                        prevSeat.classList.add('premium');
-                    } else {
-                        prevSeat.classList.add('available');
-                    }
+                    const originalType = getSeatClass(selectedSeat);
+                    prevSeat.classList.add(originalType);
                 }
             }
             
@@ -1091,95 +646,46 @@
             showMessage(`✅ Poltrona ${seatId} selecionada!`, 'success');
         }
         
+        function getSeatClass(seatId) {
+            const row = parseInt(seatId.replace(/[A-Z]/g, ''));
+            
+            if (row >= 1 && row <= 4) return 'first-class';
+            if (row >= 5 && row <= 12) return 'business';
+            if (row >= 13 && row <= 20) return 'premium';
+            return 'available';
+        }
+        
         // ============================================
         // ATUALIZA DISPLAY
         // ============================================
         function updateDisplay() {
-            // Atualiza poltrona
             const seatDisplay = document.getElementById('display-seat');
+            const statusDisplay = document.getElementById('display-status');
+            
             if (selectedSeat) {
                 seatDisplay.innerHTML = `<span style="color: #2196F3; font-weight: bold;">${selectedSeat}</span>`;
+                statusDisplay.innerHTML = '<span style="color: #4CAF50;">✅ Pronto para reservar!</span>';
             } else {
-                seatDisplay.innerHTML = '<span class="empty">Não selecionada</span>';
+                seatDisplay.innerHTML = '<span style="color: #aaa;">Não selecionada</span>';
+                statusDisplay.innerHTML = '<span style="color: #aaa;">Aguardando seleção</span>';
             }
-            
-            // Atualiza email
-            const emailDisplay = document.getElementById('display-email');
-            if (userEmail) {
-                emailDisplay.innerHTML = `<span style="color: #4CAF50;">${userEmail}</span>`;
-            } else {
-                emailDisplay.innerHTML = '<span class="empty">Não informado</span>';
-            }
-            
-            // Atualiza status
-            const statusDisplay = document.getElementById('display-status');
-            if (selectedSeat && userEmail) {
-                statusDisplay.innerHTML = '<span style="color: #4CAF50; font-weight: bold;">✅ Pronto para reservar!</span>';
-            } else if (selectedSeat) {
-                statusDisplay.innerHTML = '<span style="color: #FF9800;">✏️ Digite seu email</span>';
-            } else if (userEmail) {
-                statusDisplay.innerHTML = '<span style="color: #FF9800;">💺 Selecione uma poltrona</span>';
-            } else {
-                statusDisplay.innerHTML = '<span style="color: #aaa;">⏳ Aguardando dados</span>';
-            }
-            
-            // Atualiza nome se existir
-            if (userName) {
-                document.getElementById('display-time').innerHTML = `<span style="color: #9C27B0;">${userName}</span>`;
-            }
-        }
-        
-        function updateCurrentTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('pt-BR');
-            if (!userName) {
-                document.getElementById('display-time').innerHTML = `<span style="color: #8899aa;">${timeString}</span>`;
-            }
-        }
-        
-        function updateLastUpdateTime() {
-            const now = new Date();
-            lastUpdateTime = now;
-            document.getElementById('last-update').textContent = now.toLocaleTimeString('pt-BR');
         }
         
         // ============================================
         // VERIFICA SE PODE RESERVAR
         // ============================================
         function checkReservationReady() {
-            const isReady = selectedSeat !== null && 
-                          userEmail !== '' && 
-                          isValidEmail(userEmail) &&
-                          !occupiedSeats.includes(selectedSeat);
-            
+            const isReady = selectedSeat !== null && !occupiedSeats.includes(selectedSeat);
             document.getElementById('reserve-btn').disabled = !isReady;
-        }
-        
-        function isValidEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
         }
         
         // ============================================
         // CONFIGURA EVENT LISTENERS
         // ============================================
         function setupEventListeners() {
-            // Email input
-            document.getElementById('email-input').addEventListener('input', function() {
-                userEmail = this.value.trim();
-                updateDisplay();
-                checkReservationReady();
-            });
-            
-            // Nome input
-            document.getElementById('name-input').addEventListener('input', function() {
-                userName = this.value.trim();
-                updateDisplay();
-            });
-            
             // Botão de reserva
             document.getElementById('reserve-btn').addEventListener('click', function() {
-                createReservation();
+                showReservationForm();
             });
             
             // Botão de limpar
@@ -1187,232 +693,171 @@
                 clearSelection();
             });
             
-            // Botão de teste
-            document.getElementById('test-btn').addEventListener('click', function() {
-                testSystem();
+            // Botão de fechar formulário
+            document.getElementById('close-form').addEventListener('click', function() {
+                hideReservationForm();
             });
             
-            // Links do footer
-            document.getElementById('refresh-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                showLoader(true);
-                loadOccupiedSeats();
-            });
-            
-            document.getElementById('docs-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Documentação do Sistema Boeing 777\n\n1. API: ' + API_URL + '\n2. Formulário: ' + FORM_URL + '\n3. Planilha: ' + SPREADSHEET_ID);
-            });
-            
-            document.getElementById('support-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                showMessage('🆘 Para suporte, entre em contato com a equipe técnica.', 'info');
-            });
-            
-            // Atualização automática a cada 30 segundos
-            setInterval(() => {
-                loadOccupiedSeats();
-            }, 30000);
+            // Atualização automática
+            setInterval(loadOccupiedSeats, 30000);
         }
         
         function clearSelection() {
-            // Limpa seleção de poltrona
             if (selectedSeat) {
                 const seat = document.querySelector(`[data-seat="${selectedSeat}"]`);
                 if (seat) {
                     seat.classList.remove('selected');
-                    // Restaura classe original
-                    if (seat.classList.contains('business')) {
-                        seat.classList.add('business');
-                    } else if (seat.classList.contains('first-class')) {
-                        seat.classList.add('first-class');
-                    } else if (seat.classList.contains('premium')) {
-                        seat.classList.add('premium');
-                    } else {
-                        seat.classList.add('available');
-                    }
+                    const originalType = getSeatClass(selectedSeat);
+                    seat.classList.add(originalType);
                 }
                 selectedSeat = null;
             }
             
-            // Limpa formulários
-            document.getElementById('email-input').value = '';
-            document.getElementById('name-input').value = '';
-            userEmail = '';
-            userName = '';
-            
             updateDisplay();
             checkReservationReady();
+            hideReservationForm();
             
-            showMessage('🔄 Seleção limpa! Pode começar uma nova reserva.', 'info');
+            showMessage('🔄 Seleção limpa!', 'info');
         }
         
         // ============================================
-        // CRIAR RESERVA AUTOMÁTICA
+        // FORMULÁRIO DE RESERVA EMBUTIDO
         // ============================================
-        function createReservation() {
-            if (!selectedSeat || !userEmail) return;
+        function showReservationForm() {
+            if (!selectedSeat) return;
             
-            // Verifica se a poltrona ainda está disponível
-            if (occupiedSeats.includes(selectedSeat)) {
-                showMessage('❌ Esta poltrona acabou de ser ocupada!', 'error');
-                loadOccupiedSeats();
-                return;
-            }
+            showMessage('🔄 Preparando formulário...', 'info');
             
-            showMessage('⏳ Processando sua reserva...', 'info');
+            // Gera código de check-in
+            checkinCode = generateCheckinCode();
+            document.getElementById('display-code').innerHTML = 
+                `<span class="item-value code">${checkinCode}</span>`;
             
-            // Simula verificação de API
-            setTimeout(() => {
-                // Gera URL do Google Forms com dados pré-preenchidos
-                // Ajuste os parâmetros conforme seu formulário
-                const formUrl = `${FORM_URL}?usp=pp_url&` +
-                              `entry.1796450485=${encodeURIComponent(selectedSeat)}&` +
-                              `entry.1234567890=${encodeURIComponent(userEmail)}&` +
-                              `entry.0987654321=${encodeURIComponent(userName || '')}`;
-                
-                // Gera código de check-in simulado
-                const checkinCode = generateCheckinCode();
-                document.getElementById('display-code').innerHTML = 
-                    `<span class="item-value code">${checkinCode}</span>`;
-                
-                // Mostra confirmação
-                showMessage(`✅ Reserva gerada para poltrona ${selectedSeat}!`, 'success');
-                
-                // Abre o formulário após 2 segundos
-                setTimeout(() => {
-                    const confirmed = confirm(
-                        `RESERVA PRONTA!\n\n` +
-                        `✈️ Boeing 777\n` +
-                        `💺 Poltrona: ${selectedSeat}\n` +
-                        `📧 Email: ${userEmail}\n` +
-                        `🔐 Código: ${checkinCode}\n\n` +
-                        `O Google Forms será aberto com sua reserva pré-preenchida.\n\n` +
-                        `📝 Complete o envio para finalizar!\n\n` +
-                        `Abrir formulário agora?`
-                    );
-                    
-                    if (confirmed) {
-                        window.open(formUrl, '_blank');
-                        
-                        // Pergunta após alguns segundos se enviou
-                        setTimeout(() => {
-                            const didSubmit = confirm(
-                                'Você já enviou o formulário?\n\n' +
-                                '✅ Se SIM, sua reserva será processada automaticamente!\n' +
-                                '📧 Você receberá o código de confirmação por email.\n\n' +
-                                'Se NÃO, ainda pode completar o envio.'
+            // Monta URL do Forms com a poltrona pré-preenchida
+            const formUrl = FORM_URL.replace('SEAT_AQUI', encodeURIComponent(selectedSeat));
+            
+            // Atualiza iframe
+            const iframeContainer = document.getElementById('forms-iframe-container');
+            iframeContainer.innerHTML = `
+                <iframe 
+                    class="form-frame"
+                    src="${formUrl}"
+                    id="forms-iframe"
+                    onload="formLoaded()"
+                ></iframe>
+            `;
+            
+            // Mostra o formulário
+            document.getElementById('form-container').style.display = 'block';
+            
+            // Rola a página até o formulário
+            document.getElementById('form-container').scrollIntoView({ behavior: 'smooth' });
+            
+            showMessage('✅ Formulário carregado! Sua poltrona já está preenchida.', 'success');
+        }
+        
+        function hideReservationForm() {
+            document.getElementById('form-container').style.display = 'none';
+        }
+        
+        function formLoaded() {
+            console.log('Formulário carregado!');
+            
+            // Inicia monitoramento do envio
+            monitorFormSubmission();
+        }
+        
+        // ============================================
+        // MONITORAMENTO DO ENVIO DO FORMS
+        // ============================================
+        function monitorFormSubmission() {
+            // Verifica periodicamente se a poltrona foi ocupada
+            const checkInterval = setInterval(() => {
+                fetch(API_URL + '?t=' + new Date().getTime())
+                    .then(response => response.json())
+                    .then(data => {
+                        // Se a poltrona agora está na lista de ocupadas
+                        if (data.includes(selectedSeat)) {
+                            clearInterval(checkInterval);
+                            
+                            // Atualiza lista local
+                            occupiedSeats.push(selectedSeat);
+                            updateSeatStatus();
+                            
+                            // Mostra mensagem de sucesso
+                            showMessage(
+                                `🎉 Reserva confirmada! Código: ${checkinCode}`,
+                                'success'
                             );
                             
-                            if (didSubmit) {
-                                showMessage('✅ Reserva enviada! Verifique seu email para o código de check-in.', 'success');
-                                
-                                // Adiciona poltrona à lista de ocupadas
-                                occupiedSeats.push(selectedSeat);
-                                updateSeatStatus();
-                                updateStats();
-                                
-                                // Limpa para nova reserva
-                                setTimeout(() => {
-                                    clearSelection();
-                                }, 5000);
-                            }
-                        }, 8000);
-                    }
-                }, 2000);
-            }, 1500);
-        }
-        
-        function generateCheckinCode() {
-            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-            let code = 'BOEING-';
-            for (let i = 0; i < 6; i++) {
-                code += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return code;
-        }
-        
-        // ============================================
-        // TESTE DO SISTEMA
-        // ============================================
-        function testSystem() {
-            showMessage('🧪 Iniciando teste do sistema...', 'info');
+                            // Atualiza display
+                            document.getElementById('display-status').innerHTML = 
+                                '<span style="color: #4CAF50;">✅ Reserva confirmada!</span>';
+                            
+                            // Esconde formulário após 5 segundos
+                            setTimeout(() => {
+                                hideReservationForm();
+                            }, 5000);
+                        }
+                    });
+            }, 5000); // Verifica a cada 5 segundos
             
-            // Preenche email de teste
-            document.getElementById('email-input').value = 'teste@boeing777.com';
-            document.getElementById('email-input').dispatchEvent(new Event('input'));
-            
-            // Preenche nome de teste
-            document.getElementById('name-input').value = 'Passageiro Teste';
-            document.getElementById('name-input').dispatchEvent(new Event('input'));
-            
-            // Seleciona primeira poltrona disponível
-            const availableSeats = document.querySelectorAll('.seat.available, .seat.business, .seat.first-class, .seat.premium');
-            let testSeat = null;
-            
-            for (let seat of availableSeats) {
-                if (!occupiedSeats.includes(seat.dataset.seat)) {
-                    testSeat = seat.dataset.seat;
-                    selectSeat(testSeat);
-                    break;
-                }
-            }
-            
-            if (testSeat) {
-                showMessage(`🧪 Teste: Poltrona ${testSeat} selecionada`, 'info');
-                
-                // Mostra instruções de teste
-                setTimeout(() => {
-                    alert('TESTE DO SISTEMA BOEING 777\n\n' +
-                         '✅ Email preenchido: teste@boeing777.com\n' +
-                         '✅ Nome preenchido: Passageiro Teste\n' +
-                         `✅ Poltrona selecionada: ${testSeat}\n\n` +
-                         'O sistema está funcionando corretamente!\n' +
-                         'Clique em "Gerar Reserva Automática" para testar o fluxo completo.');
-                }, 1000);
-            } else {
-                showMessage('❌ Nenhuma poltrona disponível para teste', 'error');
-            }
+            // Para o monitoramento após 5 minutos
+            setTimeout(() => {
+                clearInterval(checkInterval);
+            }, 300000);
         }
         
         // ============================================
         // FUNÇÕES AUXILIARES
         // ============================================
+        function generateCheckinCode() {
+            const prefix = "B777";
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let code = '';
+            
+            for (let i = 0; i < 6; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            return `${prefix}-${code}`;
+        }
+        
         function showMessage(text, type) {
             const message = document.getElementById('message');
             message.textContent = text;
             message.className = `message ${type}`;
             message.style.display = 'block';
             
-            // Esconde após 5 segundos
             setTimeout(() => {
                 message.style.display = 'none';
             }, 5000);
         }
         
-        function showLoader(show) {
-            document.getElementById('seat-loader').style.display = show ? 'block' : 'none';
-        }
+        // ============================================
+        // TESTE DO SISTEMA
+        // ============================================
+        window.testSystem = function() {
+            // Encontra primeira poltrona disponível
+            const availableSeats = document.querySelectorAll('.seat:not(.occupied)');
+            if (availableSeats.length > 0) {
+                const testSeat = availableSeats[0].dataset.seat;
+                selectSeat(testSeat);
+                
+                setTimeout(() => {
+                    showReservationForm();
+                    showMessage('🧪 Sistema de teste ativado!', 'info');
+                }, 1000);
+            }
+        };
         
         // ============================================
-        // EXPORTAR DADOS (PARA DESENVOLVEDOR)
+        // INICIALIZAÇÃO AUTOMÁTICA
         // ============================================
-        window.exportSystemConfig = function() {
-            const config = {
-                apiUrl: API_URL,
-                formUrl: FORM_URL,
-                spreadsheetId: SPREADSHEET_ID,
-                occupiedSeats: occupiedSeats,
-                selectedSeat: selectedSeat,
-                userEmail: userEmail,
-                lastUpdate: lastUpdateTime
-            };
-            
-            console.log('Configuração do Sistema Boeing 777:');
-            console.table(config);
-            alert('Configuração exportada para o console (F12)');
-            return config;
-        };
+        console.log('✈️ Sistema Boeing 777 - Tudo em Um');
+        console.log('🔗 API:', API_URL);
+        console.log('📋 Forms:', FORM_URL);
+        console.log('💡 Para testar, digite: testSystem()');
     </script>
 </body>
 </html>
